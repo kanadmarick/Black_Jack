@@ -343,7 +343,7 @@ def one_round(players):
     
     
             
-from IPython.display import clear_output
+#from IPython.display import clear_output
 
 print('\t\tWelcome to Black Jack!\t\t')
 num =0
@@ -390,5 +390,5 @@ while game_on:
         game_on = False
     else:
         game_on=True
-    clear_output(True)        
+    #clear_output(True)        
    
