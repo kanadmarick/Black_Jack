@@ -335,7 +335,7 @@ def one_round(players):
             else:
                 if player.hand_values() !=21:
                     print('Bust!')
-                    break
+                    continue
                     
     
     
