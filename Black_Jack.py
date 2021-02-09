@@ -1,4 +1,3 @@
-!pip install ipython
 class Card:
     # A card must have a suit
     # A card must have a rank
@@ -26,13 +25,7 @@ class Card:
         return self.rank in ['King', 'Queen', 'Joker']
 
     def return_value(self, total=0):
-        #if self.rank=='Ace':
-         #   if total+11 >21:
-          #      return (total-10)
-           # else:
-            #    return 11
-        #else:
-            return Card.values[self.rank]
+        return Card.values[self.rank]
 
         
         
@@ -100,10 +93,9 @@ class Player:
         else:
             self.hand.append(new_cards)
         
-    #def total_value(self):
-      #  for i in range(len(self.hand)):
+    
             
-    def hand_values(self):
+    def hand_values(self):# Returns the total value of cards in player's hands
         total =0
         #print(f'{self.name}, you have the following cards:\n')
         for card in self.hand:
@@ -111,11 +103,8 @@ class Player:
             total += card.return_value()
             #print(card)
             #print(total)
-        if any(card.rank=='Ace' for card in self.hand):
+        if any(card.rank=='Ace' for card in self.hand): # Returns different values of Ace for different conditions
             count = [card for card in self.hand if card.rank =='Ace']
-            #if total>25:
-                
-             #   total -= 10*len(count)
             if total >21                                                                                                                                      :
                 total -=10
         #print(f'Total value: {total}')
@@ -152,10 +141,8 @@ class Dealer:
         else:
             self.hand.append(new_cards)
         
-    #def total_value(self):
-      #  for i in range(len(self.hand)):
-            
-    def hand_values(self):
+             
+    def hand_values(self): # Returns differect values of Ace for differenet conditions
         total =0
         #print('Dealer has the following cards:\n')
         for card in self.hand:
@@ -183,16 +170,16 @@ class Dealer:
             
         else:
             print(self.hand[0])
-            
+            print('<Card Hidden>')
 def game_play(player):
     
-    if player.hand[0].suit==player.hand[1].suit and len(player.hand)==2 and player.bet<((player.bankroll-10)/2):
+    if player.hand[0].suit==player.hand[1].suit and len(player.hand)==2 and player.bet<((player.bankroll-10)/2): # Conditions for Split 
                 wrong = True
                 while wrong:
                     play = input(f'{player.name}, please enter split, double, hit or stand: ').title()
                     if play in ['Split', 'Double' , 'Hit', 'Stand']:
                         wrong = False
-    elif len(player.hand)==2 and player.bet<((player.bankroll-10)/2):
+    elif len(player.hand)==2 and player.bet<((player.bankroll-10)/2):# Conditions for Double
         wrong = True
         while wrong:
             play = input(f'{player.name}, please enter double, hit or stand: ').title()
@@ -227,7 +214,7 @@ def dealer_func():
     dealer.hand_values()
     for card in dealer.hand:
         print(card)
-    if dealer.hand_values()==21:
+    if dealer.hand_values()==21: # If Dealer has Black Jack in the first deal
         print('Dealer has Black Jack!')
         for player in players:
             if player.hand_values()==21:
@@ -352,7 +339,7 @@ def one_round(players):
                     
     
     
-    # Dealer Module
+    
     
     
             
@@ -403,5 +390,5 @@ while game_on:
         game_on = False
     else:
         game_on=True
-    clear_output()        
+    clear_output(True)        
    
