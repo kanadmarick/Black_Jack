@@ -378,7 +378,7 @@ while game_on:
                 dealer =Dealer()
                 continue
             else:
-                print('Goodbye!')
+                print(f'Goodbye {player.name}!')
                 players.remove(player)
                 
                 
