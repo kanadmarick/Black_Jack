@@ -369,7 +369,7 @@ for n in range(1,num+1):
     name = input(f'Player {n} please enter your name: ').title()
     bankroll =0
     while bankroll not in range(100, 10001):
-        bankroll = int(input(f'{name}, plese enter your bankroll(min $ 100; max $ 10000): '))
+        bankroll = int(input(f'{name}, please enter your bankroll(min $ 100; max $ 10000): '))
     players.append(Player(name, bankroll))
 
 
