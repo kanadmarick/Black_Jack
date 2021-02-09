@@ -1,3 +1,4 @@
+!pip install ipython
 class Card:
     # A card must have a suit
     # A card must have a rank
