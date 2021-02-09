@@ -155,7 +155,7 @@ class Dealer:
             #if total>25:
                 
                 #total -= 10*len(count-1)
-            if total >17:
+            if total >21:
                 total -=10
         #print(f'Total value: {total}')
         
